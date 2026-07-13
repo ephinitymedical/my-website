@@ -1,6 +1,9 @@
 # 株式会社エフィニティメディカル コーポレートサイト
 
-GitHub Pages で公開できる静的HTMLサイトです。将来的に WordPress + SWELL へ移行する前提で、シンプルなページ構造・CSS変数ベースの配色設計にしています。
+GitHub Pages で公開中の静的HTMLサイトです。将来的に WordPress + SWELL へ移行する前提で、シンプルなページ構造・CSS変数ベースの配色設計にしています。
+
+- **公開URL**: https://ephinitymedical.github.io/my-website/
+- **リポジトリ**: https://github.com/ephinitymedical/my-website
 
 ## ページ構成
 
@@ -25,24 +28,21 @@ python3 -m http.server 4173
 # → http://localhost:4173 をブラウザで開く
 ```
 
-## GitHub Pages での公開手順
+## サイトの更新手順
 
-1. GitHub で新しいリポジトリを作成（例: `ephinity-site`）
-2. このフォルダをプッシュ:
-   ```bash
-   cd ephinity-site
-   git init
-   git add .
-   git commit -m "コーポレートサイト初版"
-   git branch -M main
-   git remote add origin https://github.com/<ユーザー名>/ephinity-site.git
-   git push -u origin main
-   ```
-3. リポジトリの **Settings → Pages** を開き、
-   **Source: Deploy from a branch / Branch: main / フォルダ: /(root)** を選択して保存
-4. 数分後に `https://<ユーザー名>.github.io/ephinity-site/` で公開されます
+ファイルを編集したら、コミットしてプッシュするだけで数十秒〜数分後に公開サイトへ反映されます。
 
-※ リンクはすべて相対パスなので、サブパス配信（`/ephinity-site/`）でも独自ドメインでもそのまま動きます。
+```bash
+cd ephinity-site
+git add .
+git commit -m "変更内容の説明"
+git push
+```
+
+※ GitHub CLI（`~/.local/bin/gh`）で認証済み。ターミナルで `gh` コマンドを使う場合は
+`export PATH="$HOME/.local/bin:$PATH"` を `~/.zshrc` に追記してください。
+
+※ リンクはすべて相対パスなので、サブパス配信（`/my-website/`）でも独自ドメインでもそのまま動きます。
 
 ## ⚠️ 公開前に必要な作業
 
