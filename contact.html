@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>お問い合わせ｜株式会社エフィニティメディカル</title>
+  <meta name="description" content="株式会社エフィニティメディカルへのお問い合わせ。企業向け健康セミナー・研修、健康経営コンサルティング、医療監修などのご相談・お見積りはこちらから。">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="株式会社エフィニティメディカル">
+  <meta property="og:title" content="お問い合わせ｜株式会社エフィニティメディカル">
+  <meta property="og:locale" content="ja_JP">
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Zen+Old+Mincho:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html">
+        <img class="brand-mark" src="img/logo-mark.png" alt="" width="60" height="40">
+        <span class="brand-text">
+          <span class="brand-ja"><span class="phrase">株式会社</span><span class="phrase">エフィニティメディカル</span></span>
+          <span class="brand-en">EPHINITY MEDICAL CO., LTD.</span>
+        </span>
+      </a>
+
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <ul>
+          <li><a href="index.html">ホーム<small>HOME</small></a></li>
+          <li><a href="about.html">会社概要<small>ABOUT</small></a></li>
+          <li><a href="profile.html">代表紹介<small>PROFILE</small></a></li>
+          <li><a href="service.html">サービス<small>SERVICE</small></a></li>
+          <li><a href="contact.html" class="is-current">お問い合わせ<small>CONTACT</small></a></li>
+        </ul>
+      </nav>
+
+      <a class="btn btn--primary header-cta" href="contact.html">お問い合わせ</a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="global-nav" aria-label="メニューを開く">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <p class="page-hero__en">CONTACT</p>
+        <h1 class="page-hero__ja">お問い合わせ</h1>
+      </div>
+    </section>
+
+    <nav class="breadcrumb" aria-label="パンくずリスト">
+      <div class="container">
+        <ol>
+          <li><a href="index.html">ホーム</a></li>
+          <li aria-current="page">お問い合わせ</li>
+        </ol>
+      </div>
+    </nav>
+
+    <section class="section">
+      <div class="container">
+        <div class="contact-wrap">
+          <p class="contact-intro reveal">
+            サービスに関するご相談・お見積りなど、お気軽にお問い合わせください。<br>
+            女性の健康課題への取り組み、何から始めるべきか──そのご相談からで構いません。
+          </p>
+
+          <!--
+            フォーム送信先の設定（GitHub Pages 公開前に必須）:
+            data-endpoint に Formspree 等のエンドポイントURLを設定してください。
+            例: data-endpoint="https://formspree.io/f/xxxxxxxx"
+            未設定の間はデモモード（入力チェック後にサンクスページへ遷移するのみ）です。
+            詳細は README.md を参照。
+          -->
+          <form class="contact-form reveal" id="contact-form" data-endpoint="" novalidate>
+            <div class="form-row">
+              <label class="form-label" for="name">氏名<span class="form-req">必須</span></label>
+              <input class="form-control" type="text" id="name" name="氏名" autocomplete="name" placeholder="例）山田 花子" required>
+            </div>
+
+            <div class="form-row">
+              <label class="form-label" for="email">メールアドレス<span class="form-req">必須</span></label>
+              <input class="form-control" type="email" id="email" name="メールアドレス" autocomplete="email" placeholder="例）example@company.co.jp" required>
+            </div>
+
+            <div class="form-row">
+              <label class="form-label" for="company">会社名<span class="form-req">必須</span></label>
+              <input class="form-control" type="text" id="company" name="会社名" autocomplete="organization" placeholder="例）株式会社○○" required>
+            </div>
+
+            <div class="form-row">
+              <label class="form-label" for="position">役職<span class="form-opt">任意</span></label>
+              <input class="form-control" type="text" id="position" name="役職" autocomplete="organization-title" placeholder="例）人事部長">
+            </div>
+
+            <div class="form-row">
+              <label class="form-label" for="message">問い合わせ内容<span class="form-req">必須</span></label>
+              <textarea class="form-control" id="message" name="問い合わせ内容" placeholder="ご相談内容をご記入ください。" required></textarea>
+            </div>
+
+            <div class="form-consent">
+              <input type="checkbox" id="consent" required>
+              <label for="consent"><a href="privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>に同意する</label>
+            </div>
+
+            <div class="form-submit">
+              <button class="btn btn--primary btn--large" type="submit">送信する<span class="btn-arrow">→</span></button>
+            </div>
+
+            <p class="form-note">※ フォーム送信先（Formspree等）の接続設定は公開前に必要です。設定方法は README.md をご覧ください。</p>
+          </form>
+
+          <p class="contact-alt">
+            メールでのお問い合わせ：<a href="mailto:info@ephinitymedical.com">info@ephinitymedical.com</a>
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="brand-text">
+            <span class="brand-ja"><span class="phrase">株式会社</span><span class="phrase">エフィニティメディカル</span></span>
+            <span class="brand-en">EPHINITY MEDICAL CO., LTD.</span>
+          </span>
+          <address class="footer-address">
+            〒104-0061 東京都中央区銀座1-12-4 N&amp;E BLD.7階<br>
+            <a href="mailto:info@ephinitymedical.com">info@ephinitymedical.com</a>
+          </address>
+        </div>
+        <nav class="footer-nav" aria-label="フッターナビゲーション">
+          <ul>
+            <li><a href="index.html">ホーム</a></li>
+            <li><a href="about.html">会社概要</a></li>
+            <li><a href="profile.html">代表紹介</a></li>
+          </ul>
+          <ul>
+            <li><a href="service.html">サービス</a></li>
+            <li><a href="contact.html">お問い合わせ</a></li>
+            <li><a href="privacy.html">プライバシーポリシー</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 Ephinity Medical Co., Ltd.</div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
