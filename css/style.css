@@ -168,16 +168,13 @@ main { display: block; }
 
 .brand-text { display: flex; flex-direction: column; line-height: 1.35; }
 
+/* FemStage ブランドロゴ文字（フェムテック調・単色。ヘッダー/フッター共通の色） */
 .brand-ja {
-  font-weight: 700;
-  font-size: 16px;
-  letter-spacing: 0.04em;
-}
-
-.brand-en {
-  font-size: 9.5px;
-  letter-spacing: 0.22em;
-  color: var(--ink-2);
+  font-family: "Poppins", var(--font-sans);
+  font-weight: 600;
+  font-size: 27px;
+  letter-spacing: 0.02em;
+  color: #e08ba4;
 }
 
 .global-nav ul {
@@ -225,6 +222,10 @@ main { display: block; }
 }
 
 .header-cta { padding: 0.7em 1.8em; font-size: 14px; }
+
+/* PC表示ではメニューの「お問い合わせ」を非表示（右上ボタンと重複するため）。
+   モバイルはボタンが消えるためメニュー側に残す */
+.global-nav .nav-contact { display: none; }
 
 /* Hamburger */
 .nav-toggle {
@@ -292,8 +293,9 @@ main { display: block; }
 .hero-inner { position: relative; z-index: 1; max-width: 860px; }
 
 .hero-kicker {
-  font-size: 13px;
-  letter-spacing: 0.32em;
+  font-family: "Poppins", var(--font-sans);
+  font-size: 15px;
+  letter-spacing: 0.18em;
   color: var(--accent);
   font-weight: 600;
   margin-bottom: 26px;
@@ -662,8 +664,6 @@ main { display: block; }
   padding-bottom: 56px;
 }
 
-.footer-brand .brand-ja { color: #fff; font-size: 17px; }
-.footer-brand .brand-en { color: rgba(255, 255, 255, 0.55); }
 
 .footer-address {
   margin-top: 18px;
@@ -1030,6 +1030,21 @@ main { display: block; }
 
 .service-detail .service-icon { width: 72px; height: 72px; margin: 0; flex: none; }
 
+.service-detail__photo {
+  flex: none;
+  width: 300px;
+  aspect-ratio: 3 / 2;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.service-detail__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .service-detail__num {
   font-family: var(--font-serif);
   font-size: 13px;
@@ -1282,8 +1297,7 @@ textarea.form-control { min-height: 180px; resize: vertical; line-height: 1.8; }
     background: rgba(255, 255, 255, 0.97);
   }
 
-  .brand-ja { font-size: 14.5px; }
-  .brand-en { font-size: 8.5px; }
+  .brand-ja { font-size: 23px; }
 
   .header-cta { display: none; }
   .nav-toggle { display: flex; }
@@ -1306,6 +1320,7 @@ textarea.form-control { min-height: 180px; resize: vertical; line-height: 1.8; }
 
   .global-nav a { font-size: 18px; }
   .global-nav a small { font-size: 10px; }
+  .global-nav .nav-contact { display: list-item; }
 
   .section { padding: 76px 0; }
   .hero { padding: calc(var(--header-h) + 64px) 0 80px; }
@@ -1338,6 +1353,7 @@ textarea.form-control { min-height: 180px; resize: vertical; line-height: 1.8; }
   .profile-badges { justify-content: center; }
 
   .service-detail { flex-direction: column; padding: 34px 28px; gap: 22px; }
+  .service-detail__photo { width: 100%; }
 
   .footer-inner { flex-direction: column; gap: 36px; }
   .footer-nav { gap: 32px; }
