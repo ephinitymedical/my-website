@@ -2,7 +2,7 @@
 
 GitHub Pages で公開中の静的HTMLサイトです。将来的に WordPress + SWELL へ移行する前提で、シンプルなページ構造・CSS変数ベースの配色設計にしています。
 
-- **公開URL**: https://ephinitymedical.github.io/my-website/
+- **公開URL**: https://femstage.jp/ （旧URL https://ephinitymedical.github.io/my-website/ からは自動リダイレクト）
 - **リポジトリ**: https://github.com/ephinitymedical/my-website
 
 ## ページ構成
