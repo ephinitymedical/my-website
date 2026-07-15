@@ -68,14 +68,8 @@
             サービスに関するご相談・お見積りなど、お気軽にお問い合わせください。
           </p>
 
-          <!--
-            フォーム送信先の設定（GitHub Pages 公開前に必須）:
-            data-endpoint に Formspree 等のエンドポイントURLを設定してください。
-            例: data-endpoint="https://formspree.io/f/xxxxxxxx"
-            未設定の間はデモモード（入力チェック後にサンクスページへ遷移するのみ）です。
-            詳細は README.md を参照。
-          -->
-          <form class="contact-form reveal" id="contact-form" data-endpoint="" novalidate>
+          <!-- 送信内容は Googleフォーム「FemStage お問い合わせ」へ転送されます（設定は js/main.js） -->
+          <form class="contact-form reveal" id="contact-form" novalidate>
             <div class="form-row">
               <label class="form-label" for="name">氏名<span class="form-req">必須</span></label>
               <input class="form-control" type="text" id="name" name="氏名" autocomplete="name" placeholder="例）山田 花子" required>
@@ -110,7 +104,6 @@
               <button class="btn btn--primary btn--large" type="submit">送信する<span class="btn-arrow">→</span></button>
             </div>
 
-            <p class="form-note">※ フォーム送信先（Formspree等）の接続設定は公開前に必要です。設定方法は README.md をご覧ください。</p>
           </form>
 
           <p class="contact-alt">
@@ -151,6 +144,6 @@
     <div class="footer-bottom">© 2026 Ephinity Medical Co., Ltd.</div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=2"></script>
 </body>
 </html>

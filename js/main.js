@@ -54,19 +54,25 @@
   }
 
   /* ---------- Contact form ----------
-     GitHub Pages はサーバー処理を持たないため、フォーム送信には
-     Formspree などの外部フォームサービスを利用します。
+     送信先: Googleフォーム「FemStage お問い合わせ」
+     サイトのフォームの見た目はそのままに、入力内容を Googleフォームの
+     回答として転送する（回答はGoogleフォームの「回答」タブ／
+     リンクしたスプレッドシートで閲覧できる）。
 
-     ● 本番設定手順:
-       1. https://formspree.io で無料アカウントを作成しフォームを作る
-       2. contact.html の <form id="contact-form" data-endpoint=""> の
-          data-endpoint に発行された URL（例: https://formspree.io/f/xxxxxxx）を設定
-       3. これだけで送信内容がメールに届くようになります
-
-     data-endpoint が空の間は「デモモード」として動作し、
-     入力チェック後にサンクスページへ遷移するだけで内容は送信されません。
-     （WordPress + SWELL 移行後は Contact Form 7 等に置き換え予定）
+     ⚠ Googleフォーム側の質問を編集・削除すると下記の entry ID が
+       変わり、送信が届かなくなります。フォームの質問は変更しないこと。
+       変更する場合は GFORM_FIELDS の ID も取り直して更新すること。
   ------------------------------------------------ */
+  var GFORM_ACTION =
+    "https://docs.google.com/forms/d/e/1FAIpQLSdRwFGXx8p8yLzWTETg4kC6aGrcoTgcFcm8F3BXEE450tfrqw/formResponse";
+  var GFORM_FIELDS = {
+    "氏名": "entry.284379273",
+    "メールアドレス": "entry.252485725",
+    "会社名": "entry.349867253",
+    "役職": "entry.1867964301",
+    "問い合わせ内容": "entry.1002718503"
+  };
+
   var form = document.getElementById("contact-form");
   if (form) {
     form.addEventListener("submit", function (e) {
@@ -75,38 +81,35 @@
         form.reportValidity();
         return;
       }
-      var endpoint = form.getAttribute("data-endpoint");
+
       var submitBtn = form.querySelector('[type="submit"]');
-
-      if (!endpoint) {
-        console.info("[Ephinity] デモモード: data-endpoint 未設定のため送信は行われません。");
-        window.location.href = "thanks.html";
-        return;
-      }
-
       if (submitBtn) {
         submitBtn.disabled = true;
-        submitBtn.dataset.label = submitBtn.textContent;
         submitBtn.textContent = "送信中…";
       }
 
-      fetch(endpoint, {
+      var body = new URLSearchParams();
+      Object.keys(GFORM_FIELDS).forEach(function (name) {
+        var field = form.elements[name];
+        body.append(GFORM_FIELDS[name], field ? field.value : "");
+      });
+
+      // Googleフォームは CORS ヘッダーを返さないため no-cors で送信する
+      // （レスポンスは読めないが送信自体は記録される）
+      fetch(GFORM_ACTION, {
         method: "POST",
-        body: new FormData(form),
-        headers: { Accept: "application/json" }
+        mode: "no-cors",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: body.toString()
       })
-        .then(function (res) {
-          if (res.ok) {
-            window.location.href = "thanks.html";
-          } else {
-            throw new Error("send failed");
-          }
+        .then(function () {
+          window.location.href = "thanks.html";
         })
         .catch(function () {
           alert("送信に失敗しました。お手数ですが、時間をおいて再度お試しください。");
           if (submitBtn) {
             submitBtn.disabled = false;
-            submitBtn.textContent = submitBtn.dataset.label || "送信する";
+            submitBtn.textContent = "送信する";
           }
         });
     });
