@@ -908,18 +908,8 @@ main { display: block; }
 
 .timeline li {
   display: grid;
-  grid-template-columns: 110px 28px 1fr;
+  grid-template-columns: 28px 1fr;
   gap: 0 18px;
-}
-
-.timeline .tl-year {
-  font-family: var(--font-serif);
-  font-weight: 600;
-  font-size: 17px;
-  color: var(--accent-dark);
-  text-align: right;
-  letter-spacing: 0.04em;
-  padding-top: 2px;
 }
 
 .timeline .tl-track {
@@ -1377,8 +1367,7 @@ textarea.form-control { min-height: 180px; resize: vertical; line-height: 1.8; }
 
   .company-table th { border-bottom: none; padding-bottom: 4px; background: var(--bg-warm); }
 
-  .timeline li { grid-template-columns: 74px 22px 1fr; gap: 0 12px; }
-  .timeline .tl-year { font-size: 15px; }
+  .timeline li { grid-template-columns: 22px 1fr; gap: 0 12px; }
 
   .mission-box { padding: 48px 26px; }
 
